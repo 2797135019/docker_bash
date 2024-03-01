@@ -1,0 +1,23 @@
+
+name: Run build script
+
+on:
+    push:
+          branches: [ main ]
+
+          jobs:
+              build:
+                    runs-on: ubuntu-latest
+
+                          steps:
+                                - name: Check out code
+                                        uses: actions/checkout@v2
+
+                                              - name: Set up Docker
+                                                      uses: docker/setup-docker-action@v1
+
+                                                            - name: Run build script
+                                                                    run: |
+                                                                              chmod +x ./build.sh
+                                                                                      ./build.sh
+
